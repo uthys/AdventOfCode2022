@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import javax.print.PrintException;
-public class day_1 {
+public class day_2 {
     /**
      * @param args
      * @throws FileNotFoundException
@@ -31,6 +31,20 @@ public class day_1 {
                     if(count > max) max = count;}
                 catch(NumberFormatException ex){count=0; continue;}
             }
+            
+            ArrayList<Integer> elves = new ArrayList<>();
+            int CurrentElf = 0;
+            
+            for(String s : cals){
+                try{
+                    CurrentElf += Integer.parseInt(s);
+                }catch(NumberFormatException ex){
+                    elves.add(CurrentElf);
+                    CurrentElf = 0;
+                    continue;
+                }
+            }
+            System.out.println(elves);
         }catch(FileNotFoundException e) {System.out.println(e);}
     }
 } 
